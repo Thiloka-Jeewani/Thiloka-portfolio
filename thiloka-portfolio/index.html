@@ -29,17 +29,28 @@
     <section class="hero" id="home">
       <div class="hero-overlay"></div>
       <div class="hero-content reveal">
-        <p class="eyebrow">IT Undergraduate • Artificial Intelligence</p>
+        <p class="eyebrow">BSc Information Technology • SLIIT</p>
         <h1>Hi, I'm <br><span>Thiloka Kulathunga</span></h1>
-        <p class="hero-text">I build clean, responsive and user-friendly web applications while exploring AI, machine learning, NLP and database-driven software solutions.</p>
+        <div class="typing-container">
+          <p class="typing-text">
+            <span class="typing-label">Currently: </span>
+            <span class="typing-effect" id="typing"></span>
+            <span class="typing-cursor">|</span>
+          </p>
+        </div>
+        <p class="hero-text">I build clean, responsive and user-friendly web applications while exploring AI, machine learning, NLP and database-driven software solutions. Passionate about full-stack development and creating impactful digital experiences.</p>
         <div class="hero-actions">
           <a href="#projects" class="btn primary">View My Work</a>
+          <a href="mailto:thilokajeewani888@gmail.com?subject=CV%20Request" class="btn secondary">Download CV</a>
           <a href="#contact" class="btn secondary">Contact Me</a>
-          <a href="#" class="btn secondary" download>Download CV</a>
         </div>
         <div class="social-buttons">
-          <a href="https://github.com/Thiloka-Jeewani" target="_blank" class="social-btn">GitHub</a>
-          <a href="https://linkedin.com/in/thiloka-kulathunga-b6662433b" target="_blank" class="social-btn">LinkedIn</a>
+          <a href="https://github.com/Thiloka-Jeewani" target="_blank" class="social-btn" title="GitHub">
+            <span class="social-icon">🐙</span>GitHub
+          </a>
+          <a href="https://linkedin.com/in/thiloka-kulathunga-b6662433b" target="_blank" class="social-btn" title="LinkedIn">
+            <span class="social-icon">💼</span>LinkedIn
+          </a>
         </div>
       </div>
       <div class="hero-card reveal">
@@ -63,9 +74,53 @@
       </div>
       <div class="about-text reveal">
         <p class="section-tag">About Me</p>
-        <h2>Hello!</h2>
-        <p>I am a BSc (Hons) Information Technology undergraduate at SLIIT, specializing in Artificial Intelligence. I have experience in academic and personal projects using Java, Python, React, Spring Boot, SQL, MongoDB and machine learning concepts.</p>
-        <p>My goal is to gain industry experience through an internship and contribute to real-world software solutions with a strong learning mindset.</p>
+        <h2>Professional Summary</h2>
+        <p>I'm a dedicated IT undergraduate specializing in Artificial Intelligence at SLIIT, with a strong foundation in full-stack development. I combine technical expertise with a passion for innovation, creating software solutions that are both robust and user-centric. My experience spans from backend systems to modern frontend frameworks.</p>
+        
+        <div class="about-highlights">
+          <div class="highlight-item">
+            <span class="highlight-icon">🎓</span>
+            <div class="highlight-content">
+              <h4>Education</h4>
+              <p>BSc (Hons) Information Technology<br>SLIIT, Colombo</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-icon">💡</span>
+            <div class="highlight-content">
+              <h4>Specialization</h4>
+              <p>Artificial Intelligence & Machine Learning</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-icon">🏆</span>
+            <div class="highlight-content">
+              <h4>Key Strengths</h4>
+              <p>Java, Spring Boot, Python, React, Web Development</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="education-timeline">
+          <h3>Education Timeline</h3>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <p class="timeline-year">2022 - Present</p>
+              <p class="timeline-title">BSc (Hons) Information Technology</p>
+              <p class="timeline-desc">SLIIT, Colombo • Specialization: AI</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <p class="timeline-year">2020 - 2022</p>
+              <p class="timeline-title">Advanced Level Education</p>
+              <p class="timeline-desc">Science Stream • GPA: Excellent</p>
+            </div>
+          </div>
+        </div>
+
         <div class="quick-info">
           <span>📍 Avissawella, Sri Lanka</span>
           <span>🎓 SLIIT</span>
@@ -94,15 +149,144 @@
     <section class="skills section" id="skills">
       <div class="section-head reveal">
         <p class="section-tag">Technical Skills</p>
-        <h2>Skills I use to build projects</h2>
+        <h2>Skills & Expertise</h2>
       </div>
-      <div class="skills-grid reveal">
-        <div class="skill-box"><h3>Programming</h3><p>Java, Python, C</p></div>
-        <div class="skill-box"><h3>Web Development</h3><p>HTML5, CSS3, JavaScript, JSP, Servlets, React, Spring Boot</p></div>
-        <div class="skill-box"><h3>Databases</h3><p>MySQL, SQL, MongoDB, File Handling</p></div>
-        <div class="skill-box"><h3>AI & ML</h3><p>Data Preprocessing, Model Evaluation, NLP Fundamentals, ML Basics</p></div>
-        <div class="skill-box"><h3>Tools</h3><p>Git, GitHub, VS Code, IntelliJ IDEA, Maven, Tomcat, Ubuntu Linux</p></div>
-        <div class="skill-box"><h3>Soft Skills</h3><p>Problem Solving, Teamwork, Communication, Adaptability, Time Management</p></div>
+      
+      <div class="skills-container reveal">
+        <!-- Programming Languages -->
+        <div class="skill-category">
+          <h3 class="category-title">Programming Languages</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Java</span>
+                <span class="skill-level">90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Python</span>
+                <span class="skill-level">85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">JavaScript</span>
+                <span class="skill-level">80%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">C</span>
+                <span class="skill-level">75%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 75%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Web Technologies -->
+        <div class="skill-category">
+          <h3 class="category-title">Web Technologies</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Spring Boot</span>
+                <span class="skill-level">88%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 88%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">React</span>
+                <span class="skill-level">82%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 82%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">HTML5 & CSS3</span>
+                <span class="skill-level">92%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 92%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">JSP & Servlets</span>
+                <span class="skill-level">85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Databases -->
+        <div class="skill-category">
+          <h3 class="category-title">Databases</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">MySQL</span>
+                <span class="skill-level">88%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 88%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">MongoDB</span>
+                <span class="skill-level">80%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">SQL</span>
+                <span class="skill-level">85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools & Platforms -->
+        <div class="skill-category">
+          <h3 class="category-title">Tools & Platforms</h3>
+          <div class="skill-badges">
+            <span class="skill-badge">Git & GitHub</span>
+            <span class="skill-badge">VS Code</span>
+            <span class="skill-badge">IntelliJ IDEA</span>
+            <span class="skill-badge">Maven</span>
+            <span class="skill-badge">Tomcat</span>
+            <span class="skill-badge">Linux/Ubuntu</span>
+            <span class="skill-badge">Docker</span>
+            <span class="skill-badge">Figma</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -121,67 +305,125 @@
 
     <section class="projects section" id="projects">
       <div class="section-head reveal">
-        <p class="section-tag">Projects</p>
-        <h2>Featured academic & personal work</h2>
+        <p class="section-tag">Featured Projects</p>
+        <h2>Academic & Personal Work</h2>
       </div>
-      <div class="project-grid reveal">
-        <article class="project-card"><span>AI + Web</span><h3>AI-Powered Travel Planning System</h3><p>Personalized itinerary generation based on budget, duration and preferences. Implemented IT Service Ticket module with CRUD and validation.</p><small>Python Flask • MySQL • HTML • CSS • JavaScript</small></article>
-        <article class="project-card"><span>Full Stack</span><h3>Vehicle Rental Mobile Application</h3><p>Booking, user management, vehicle listing and CRUD operations with MongoDB backend integration.</p><small>HTML • CSS • Node.js • MongoDB</small></article>
-        <a href="https://github.com/Thiloka-Jeewani/HotelRio---The-Hotel-room-reservation-system-project" target="_blank" class="project-card project-link"><span>Java Web</span><h3>Hotel Room Reservation System</h3><p>Tourism web app with registration, authentication, profile management and password recovery features.</p><small>Java • JSP • Servlets • Maven</small><div class="project-footer"><span class="github-btn">View on GitHub ↗</span></div></a>
-        <a href="https://github.com/Thiloka-Jeewani/Web-based_Laundry-management-system" target="_blank" class="project-card project-link"><span>Web System</span><h3>Web-Based Laundry Management System</h3><p>Customer, staff and admin operations with CRUD user management and SQL integration.</p><small>Java • React • SQL • Tomcat</small><div class="project-footer"><span class="github-btn">View on GitHub ↗</span></div></a>
-        <a href="https://github.com/Thiloka-Jeewani/MOVIE-SENTIBOT-NLP-Based-Solution-for-Movie-Review-Sentiment-Analysis" target="_blank" class="project-card project-link"><span>NLP</span><h3>MOVIE-SENTIBOT</h3><p>NLP sentiment analysis system using a Kaggle movie review dataset to classify reviews as positive or negative.</p><small>Python • Scikit-learn • Pandas</small><div class="project-footer"><span class="github-btn">View on GitHub ↗</span></div></a>
-        <article class="project-card"><span>IoT</span><h3>Smart Greenhouse System</h3><p>Sensor-based greenhouse monitoring for water level, soil moisture and light intensity automation.</p><small>Arduino • DHT11 • LDR • Soil Sensor</small></article>
-        <div class="project-card">
-          <img src="assets/projects/laundry-system.png" alt="Laundry System">
-          <div class="project-content">
-            <h3>Fresh Wash Laundry Management System</h3>
-            <p>Spring Boot MVC based laundry management platform with order tracking, pickup scheduling, payments and admin dashboard.</p>
-            <div class="tech-stack">
-              <span>Java</span>
-              <span>Spring Boot</span>
-              <span>MySQL</span>
-              <span>Bootstrap</span>
+      <div class="projects-container reveal">
+        <!-- Featured Project 1: Travel Planner -->
+        <article class="project-card featured-project">
+          <div class="project-image-wrapper">
+            <img src="assets/projects/travel-planner.png" alt="AI Travel Planner System" loading="lazy">
+            <div class="project-overlay">
+              <a href="#" class="project-btn">View Details</a>
             </div>
-            <a href="YOUR_GITHUB_LINK" target="_blank">View Project</a>
           </div>
-        </div>
-      </div>
-    </section>
+          <div class="project-info">
+            <span class="project-badge">AI + Web</span>
+            <h3>AI-Powered Travel Planning System</h3>
+            <p>Personalized itinerary generation based on budget, duration and user preferences using Machine Learning. Features intelligent recommendation engine and service ticket management.</p>
+            <div class="tech-badges">
+              <span class="badge">Python</span>
+              <span class="badge">Flask</span>
+              <span class="badge">MySQL</span>
+              <span class="badge">ML</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Thiloka-Jeewani" target="_blank" class="link-btn github-btn">GitHub</a>
+            </div>
+          </div>
+        </article>
 
-    <section class="best-projects section">
-      <div class="section-head reveal">
-        <p class="section-tag">Best Work</p>
-        <h2 class="section-title">Best Projects For You</h2>
-      </div>
-      <div class="featured-projects reveal">
-        <article class="featured-card">
-          <img src="assets/projects/travel-planner.png" alt="AI Travel Planner">
-          <h3>AI Travel Planner</h3>
-          <p>AI-powered travel planning system that generates personalized itineraries based on budget, duration and user preferences using Machine Learning.</p>
-          <div class="featured-tags">
-            <span>Python</span>
-            <span>Flask</span>
-            <span>MySQL</span>
+        <!-- Featured Project 2: Laundry System -->
+        <article class="project-card featured-project">
+          <div class="project-image-wrapper">
+            <img src="assets/projects/laundry-system.png" alt="Fresh Wash Laundry Management" loading="lazy">
+            <div class="project-overlay">
+              <a href="#" class="project-btn">View Details</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-badge">Full Stack</span>
+            <h3>Fresh Wash Laundry Management System</h3>
+            <p>Spring Boot MVC based laundry platform with complete order tracking, pickup scheduling, customer management, and administrative dashboard with real-time updates.</p>
+            <div class="tech-badges">
+              <span class="badge">Java</span>
+              <span class="badge">Spring Boot</span>
+              <span class="badge">MySQL</span>
+              <span class="badge">Bootstrap</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Thiloka-Jeewani/Web-based_Laundry-management-system" target="_blank" class="link-btn github-btn">GitHub</a>
+            </div>
           </div>
         </article>
-        <article class="featured-card">
-          <img src="assets/projects/laundry-system.png" alt="Fresh Wash Laundry">
-          <h3>Fresh Wash Laundry Management System</h3>
-          <p>Full-stack laundry management platform with order tracking, pickup scheduling, customer management and administrative features.</p>
-          <div class="featured-tags">
-            <span>Java</span>
-            <span>Spring Boot</span>
-            <span>MySQL</span>
+
+        <!-- Featured Project 3: Hotel Booking -->
+        <article class="project-card featured-project">
+          <div class="project-image-wrapper">
+            <img src="assets/projects/luxstay.png" alt="LuxStay Hotel Booking System" loading="lazy">
+            <div class="project-overlay">
+              <a href="#" class="project-btn">View Details</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-badge">Java Web</span>
+            <h3>LuxStay Hotel Booking System</h3>
+            <p>Full-featured hotel reservation system with room management, advanced booking functionality, user authentication, and modern responsive UI design.</p>
+            <div class="tech-badges">
+              <span class="badge">Java</span>
+              <span class="badge">JSP</span>
+              <span class="badge">Servlets</span>
+              <span class="badge">Maven</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Thiloka-Jeewani/HotelRio---The-Hotel-room-reservation-system-project" target="_blank" class="link-btn github-btn">GitHub</a>
+            </div>
           </div>
         </article>
-        <article class="featured-card">
-          <img src="assets/projects/luxstay.png" alt="LuxStay Hotel Booking">
-          <h3>LuxStay Hotel Booking System</h3>
-          <p>Responsive hotel reservation system featuring room management, booking functionality and modern user interface design.</p>
-          <div class="featured-tags">
-            <span>Java</span>
-            <span>JSP</span>
-            <span>Servlets</span>
+
+        <!-- Other Projects -->
+        <article class="project-card">
+          <div class="project-info">
+            <span class="project-badge">Full Stack</span>
+            <h3>Vehicle Rental Mobile Application</h3>
+            <p>Complete booking system with user management, vehicle listing, and CRUD operations integrated with MongoDB backend.</p>
+            <div class="tech-badges">
+              <span class="badge">HTML5</span>
+              <span class="badge">CSS3</span>
+              <span class="badge">Node.js</span>
+              <span class="badge">MongoDB</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-info">
+            <span class="project-badge">NLP</span>
+            <h3>MOVIE-SENTIBOT</h3>
+            <p>NLP-based sentiment analysis system using Kaggle movie review dataset to classify reviews as positive or negative with high accuracy.</p>
+            <div class="tech-badges">
+              <span class="badge">Python</span>
+              <span class="badge">Scikit-learn</span>
+              <span class="badge">NLP</span>
+              <span class="badge">Pandas</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Thiloka-Jeewani/MOVIE-SENTIBOT-NLP-Based-Solution-for-Movie-Review-Sentiment-Analysis" target="_blank" class="link-btn github-btn">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-info">
+            <span class="project-badge">IoT</span>
+            <h3>Smart Greenhouse System</h3>
+            <p>Sensor-based greenhouse monitoring system for automated water level, soil moisture and light intensity control with real-time data logging.</p>
+            <div class="tech-badges">
+              <span class="badge">Arduino</span>
+              <span class="badge">DHT11</span>
+              <span class="badge">IoT</span>
+              <span class="badge">C++</span>
+            </div>
           </div>
         </article>
       </div>
@@ -203,25 +445,47 @@
 
     <section class="contact section" id="contact">
       <div class="contact-box reveal">
-        <p class="section-tag">Contact</p>
-        <h2>Let’s connect and build something useful.</h2>        <div class="contact-cards reveal">
+        <p class="section-tag">Get In Touch</p>
+        <h2>Let's connect and build something great together</h2>
+        <p class="contact-subtitle">Feel free to reach out for collaborations or internship opportunities. I'm always interested in hearing about new projects.</p>
+        
+        <div class="contact-cards-wrapper">
           <div class="contact-card">
             <span class="contact-icon">📧</span>
+            <h4>Email</h4>
             <p>thilokajeewani888@gmail.com</p>
+            <a href="mailto:thilokajeewani888@gmail.com" class="contact-link">Send Email</a>
           </div>
           <div class="contact-card">
             <span class="contact-icon">📍</span>
-            <p>Sri Lanka</p>
+            <h4>Location</h4>
+            <p>Avissawella, Sri Lanka</p>
+            <p style="font-size: 12px; color: #b8d8ff;">Available for Remote & On-site</p>
           </div>
           <div class="contact-card">
-            <span class="contact-icon">💻</span>
-            <p>Available for Internship Opportunities</p>
+            <span class="contact-icon">💼</span>
+            <h4>Status</h4>
+            <p>Open for Internship Opportunities</p>
+            <p style="font-size: 12px; color: #b8d8ff;">Software / Web / AI Development</p>
           </div>
-        </div>        <div class="contact-links">
-          <a href="mailto:thilokajeewani888@gmail.com">thilokajeewani888@gmail.com</a>
-          <a href="tel:+94764300096">076 430 0096</a>
-          <a href="https://linkedin.com/in/thiloka-kulathunga-b6662433b" target="_blank">LinkedIn</a>
-          <a href="https://github.com/Thiloka-Jeewani" target="_blank">GitHub</a>
+          <div class="contact-card">
+            <span class="contact-icon">📱</span>
+            <h4>Phone</h4>
+            <p>+94 76 430 0096</p>
+            <a href="tel:+94764300096" class="contact-link">Call Me</a>
+          </div>
+        </div>
+
+        <div class="social-links-section">
+          <h3>Connect on Social</h3>
+          <div class="social-links">
+            <a href="https://github.com/Thiloka-Jeewani" target="_blank" class="social-link github">
+              <span>GitHub</span>
+            </a>
+            <a href="https://linkedin.com/in/thiloka-kulathunga-b6662433b" target="_blank" class="social-link linkedin">
+              <span>LinkedIn</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
