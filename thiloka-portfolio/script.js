@@ -1,13 +1,49 @@
 // ============================================
+// THEME TOGGLE (dark / light, persisted)
+// ============================================
+
+const root = document.documentElement;
+const themeToggle = document.getElementById('themeToggle');
+const savedTheme = localStorage.getItem('thiloka-theme');
+
+if (savedTheme === 'light') {
+  root.setAttribute('data-theme', 'light');
+} else if (!savedTheme && window.matchMedia('(prefers-color-scheme: light)').matches) {
+  root.setAttribute('data-theme', 'light');
+}
+
+function updateToggleIcon() {
+  if (!themeToggle) return;
+  const isLight = root.getAttribute('data-theme') === 'light';
+  themeToggle.textContent = isLight ? '☀️' : '🌙';
+  themeToggle.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+}
+updateToggleIcon();
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const isLight = root.getAttribute('data-theme') === 'light';
+    if (isLight) {
+      root.removeAttribute('data-theme');
+      localStorage.setItem('thiloka-theme', 'dark');
+    } else {
+      root.setAttribute('data-theme', 'light');
+      localStorage.setItem('thiloka-theme', 'light');
+    }
+    updateToggleIcon();
+  });
+}
+
+// ============================================
 // TYPING EFFECT
 // ============================================
 
 const roles = [
   "IT Undergraduate",
   "Full-Stack Developer",
-  "Java Developer",
-  "Web Developer",
-  "AI Enthusiast"
+  "AI/ML Enthusiast",
+  "Hackathon Builder",
+  "Web Developer"
 ];
 
 let currentRoleIndex = 0;
@@ -16,6 +52,7 @@ let isDeleting = false;
 
 function typeEffect() {
   const typingElement = document.getElementById('typing');
+  if (!typingElement) return;
   const currentRole = roles[currentRoleIndex];
 
   if (!isDeleting) {
@@ -40,7 +77,6 @@ function typeEffect() {
   }
 }
 
-// Start typing effect when page loads
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', typeEffect);
 } else {
@@ -84,7 +120,8 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-document.querySelectorAll('.reveal').forEach(el => {
+document.querySelectorAll('.reveal').forEach((el, index) => {
+  el.style.transitionDelay = `${(index % 6) * 60}ms`;
   observer.observe(el);
 });
 
@@ -99,10 +136,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       e.preventDefault();
       const target = document.querySelector(href);
       if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
   });
@@ -113,13 +147,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ============================================
 
 if ('IntersectionObserver' in window) {
-  const imageObserver = new IntersectionObserver((entries, observer) => {
+  const imageObserver = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const img = entry.target;
         img.src = img.dataset.src || img.src;
         img.classList.add('loaded');
-        observer.unobserve(img);
+        obs.unobserve(img);
       }
     });
   });
@@ -128,7 +162,6 @@ if ('IntersectionObserver' in window) {
     imageObserver.observe(img);
   });
 } else {
-  // Fallback for browsers that don't support IntersectionObserver
   document.querySelectorAll('img[loading="lazy"]').forEach(img => {
     img.src = img.dataset.src || img.src;
   });
@@ -138,24 +171,14 @@ if ('IntersectionObserver' in window) {
 // NAVBAR SCROLL EFFECT
 // ============================================
 
-let lastScrollTop = 0;
 const navbar = document.getElementById('navbar');
 
 window.addEventListener('scroll', () => {
-  let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-  if (scrollTop > 100) {
-    navbar.style.background = 'rgba(8, 17, 41, 0.95)';
-    navbar.style.backdropFilter = 'blur(20px)';
-    navbar.style.boxShadow = '0 8px 32px rgba(30, 120, 225, 0.1)';
-  } else {
-    navbar.style.background = 'rgba(8, 17, 41, 0.72)';
-    navbar.style.backdropFilter = 'blur(18px)';
-    navbar.style.boxShadow = 'none';
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  if (navbar) {
+    navbar.classList.toggle('scrolled', scrollTop > 80);
   }
-
-  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-});
+}, { passive: true });
 
 // ============================================
 // SKILL PROGRESS ANIMATION
@@ -166,27 +189,83 @@ const skillObserver = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       const progressBars = entry.target.querySelectorAll('.skill-progress');
       progressBars.forEach(bar => {
-        const width = bar.style.width;
+        const width = bar.dataset.width || bar.style.width;
+        bar.dataset.width = width;
         bar.style.width = '0';
-        setTimeout(() => {
-          bar.style.width = width;
-        }, 100);
+        setTimeout(() => { bar.style.width = width; }, 100);
       });
       skillObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.5 });
+}, { threshold: 0.4 });
 
 const skillsSection = document.querySelector('.skills-container');
-if (skillsSection) {
-  skillObserver.observe(skillsSection);
+if (skillsSection) skillObserver.observe(skillsSection);
+
+// ============================================
+// SCROLL-VELOCITY MOTION BLUR + PARALLAX ORBS
+// (layered depth: background orbs drift at different
+// speeds, and briefly blur during fast scroll bursts)
+// ============================================
+
+const orbs = document.querySelectorAll('.bg-orb');
+const heroCard = document.querySelector('.hero-card img');
+let lastY = window.scrollY;
+let blurTimeout;
+
+function onScrollMotion() {
+  const y = window.scrollY;
+  const delta = Math.abs(y - lastY);
+  lastY = y;
+
+  const blurAmount = Math.min(delta / 12, 4.5);
+  document.documentElement.style.setProperty('--scroll-blur', blurAmount + 'px');
+  clearTimeout(blurTimeout);
+  blurTimeout = setTimeout(() => {
+    document.documentElement.style.setProperty('--scroll-blur', '0px');
+  }, 120);
+
+  orbs.forEach((orb, i) => {
+    const speed = 0.06 + i * 0.03;
+    orb.style.transform = `translate3d(0, ${y * speed}px, 0)`;
+  });
+
+  if (heroCard && y < window.innerHeight) {
+    heroCard.style.transform = `translateY(${y * 0.08}px) scale(${1 - y * 0.00015})`;
+  }
+}
+
+window.addEventListener('scroll', () => {
+  window.requestAnimationFrame(onScrollMotion);
+}, { passive: true });
+
+// ============================================
+// CURSOR GLOW (desktop only)
+// ============================================
+
+const cursorGlow = document.querySelector('.cursor-glow');
+if (cursorGlow && window.matchMedia('(hover: hover)').matches) {
+  window.addEventListener('mousemove', (e) => {
+    cursorGlow.style.left = e.clientX + 'px';
+    cursorGlow.style.top = e.clientY + 'px';
+    cursorGlow.classList.add('active');
+  });
+  document.addEventListener('mouseleave', () => cursorGlow.classList.remove('active'));
 }
 
 // ============================================
-// ENHANCED SCROLL ANIMATIONS
+// SUBTLE TILT ON CARDS
 // ============================================
 
-// Add staggered animation to list items
-document.querySelectorAll('.reveal').forEach((element, index) => {
-  element.style.transitionDelay = `${index * 50}ms`;
+const tiltTargets = document.querySelectorAll('.project-card, .hackathon-card, .process-card, .stat-card');
+tiltTargets.forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transform = `perspective(900px) rotateX(${-y * 4}deg) rotateY(${x * 4}deg) translateY(-6px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
 });
