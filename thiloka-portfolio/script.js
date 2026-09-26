@@ -8,8 +8,8 @@ const savedTheme = localStorage.getItem('thiloka-theme');
 
 if (savedTheme === 'light') {
   root.setAttribute('data-theme', 'light');
-} else if (!savedTheme && window.matchMedia('(prefers-color-scheme: light)').matches) {
-  root.setAttribute('data-theme', 'light');
+} else {
+  root.removeAttribute('data-theme');
 }
 
 function updateToggleIcon() {
@@ -269,3 +269,36 @@ tiltTargets.forEach(card => {
     card.style.transform = '';
   });
 });
+
+// ============================================
+// HERO PHOTO — pointer-tracked 3D tilt + glare
+// ============================================
+
+const heroTilt = document.getElementById('heroTilt');
+if (heroTilt && window.matchMedia('(hover: hover)').matches) {
+  const heroWrap = heroTilt.closest('.tilt-wrap');
+  heroWrap.addEventListener('mousemove', (e) => {
+    const rect = heroWrap.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    const rotY = (x - 0.5) * 18;
+    const rotX = (0.5 - y) * 18;
+    heroTilt.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+    heroTilt.style.setProperty('--gx', `${x * 100}%`);
+    heroTilt.style.setProperty('--gy', `${y * 100}%`);
+  });
+  heroWrap.addEventListener('mouseleave', () => {
+    heroTilt.style.transform = 'rotateX(0deg) rotateY(0deg)';
+  });
+}
+
+// ============================================
+// ABOUT ID CARD — click to flip (3D)
+// ============================================
+
+const flipCard = document.getElementById('flipCard');
+if (flipCard) {
+  flipCard.addEventListener('click', () => {
+    flipCard.classList.toggle('flipped');
+  });
+}
