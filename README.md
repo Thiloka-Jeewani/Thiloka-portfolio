@@ -1,170 +1,93 @@
-﻿# 🌐 Thiloka Portfolio Website
+# Thiloka Kulathunga — Portfolio
 
-A modern personal portfolio website showcasing my education, technical skills, projects, certifications, and career journey as an Information Technology undergraduate specializing in Artificial Intelligence at SLIIT.
+A responsive HTML, CSS and vanilla JavaScript portfolio for software engineering and AI/ML internships. No build step or runtime dependencies.
 
-🔗 **Live Website:** https://thiloka-portfolio-website.netlify.app/
+## Run locally
 
----
+From this repository directory:
 
-## 👩‍💻 About Me
+```powershell
+python -m http.server 8080 --bind 127.0.0.1 --directory thiloka-portfolio
+```
 
-I am **Thiloka Kulathunga**, a BSc (Hons) Information Technology undergraduate specializing in Artificial Intelligence. I am passionate about software development, web technologies, machine learning, and building practical solutions to real-world problems.
+Open http://127.0.0.1:8080. Opening `thiloka-portfolio/index.html` directly also works; a local server is recommended for testing downloads and network requests.
 
-This portfolio serves as a central hub to present my academic projects, technical skills, certifications, and professional profile.
+## Project catalog
 
----
+**New:** Pac-Man Search Algorithms (collaborative Intelligent Agents coursework); Sri Lanka Bus Tracker; Smart Solar Installation & Grid Compliance (collaborative team project linked from Thiloka’s GitHub profile).
 
-## 🚀 Features
+**Preserved:** AI-Powered Travel Planning System, Fresh Wash Laundry Management System, LuxStay Hotel Booking System (HotelRio), Vehicle Rental Mobile Application (DriveMate), MOVIE-SENTIBOT, Smart Greenhouse System.
 
-* Responsive modern portfolio design
-* Professional developer profile section
-* Technical skills showcase
-* Project portfolio with detailed descriptions
-* Certifications and achievements
-* Contact information and social links
-* GitHub and LinkedIn integration
-* Mobile-friendly user interface
+**Preserved team achievements:** NeuroForge — Intelligent Document Assistant; ShareBite LK. Their original team roles, event descriptions and source links remain in the Hackathons section. All five certificates, education, personal details and original resume remain available.
 
----
+See [PROJECT_AUDIT.md](PROJECT_AUDIT.md) for repository evidence, factual corrections, excluded candidates and image provenance. No new accuracy, impact or production-readiness claims were introduced.
 
-## 🛠 Technologies Used
+## Design and behavior
 
-### Frontend
+- Dark navy and optional persisted light theme, restrained blue/violet/cyan accents.
+- Responsive project cards, category filters, technology badges and native expandable technical details.
+- Genuine repository screenshots, local WebP previews, and a clearly labeled graphic when no screenshot is available.
+- Sticky glass navigation, active-section indicator, mobile menu with Escape/outside-click dismissal.
+- Keyboard focus styles, skip link, accessible filter state/count announcements, keyboard-operated profile card.
+- Reduced-motion support, including a static role label when requested.
+- Categorized skills, education timeline, certificate previews and email/social/resume links.
+- Search/social metadata and a local SVG favicon.
 
-* HTML5
-* CSS3
-* JavaScript
+## Edit projects
 
-### Tools & Platforms
+Edit the `projects` array in `thiloka-portfolio/projects.js`. Each object contains:
 
-* Git
-* GitHub
-* VS Code
-* Netlify
+```javascript
+{
+  id: 'unique-id',
+  title: 'Project name',
+  categories: ['Full-Stack', 'Web Development'],
+  stack: ['Actual', 'Technologies'],
+  description: 'Concise, verified purpose.',
+  features: ['Verified technical feature'],
+  github: 'https://github.com/owner/exact-repository',
+  image: 'assets/projects/preview.webp', // null uses a labeled project graphic
+  contribution: 'Documented personal contribution, or null',
+  demo: 'https://verified-demo.example' // optional; verify before adding
+}
+```
 
----
+Supported categories: `AI / Machine Learning`, `Full-Stack`, `Web Development`, `Mobile / IoT`. Only categories used in the catalog appear. `script.js` renders data with DOM text APIs rather than interpolated HTML. Keep IDs and repository links unique. Place image files under `assets/projects/`, optimize previews, and record their source in the audit.
 
-## 📂 Featured Projects
+## Files
 
-### AI-Powered Travel Planning System
+- `thiloka-portfolio/index.html`: existing content, semantic navigation, gallery containers and metadata.
+- `thiloka-portfolio/style.css`: existing styles plus responsive visual refinements.
+- `thiloka-portfolio/projects.js`: nine-project catalog.
+- `thiloka-portfolio/script.js`: filters, accessible cards, theme, navigation and role rotation.
+- `thiloka-portfolio/assets/`: original assets retained; optimized WebP previews and favicon added.
+- `netlify.toml`: static publish directory.
+- `PROJECT_AUDIT.md`: evidence and limitations.
+- `PROJECTS_ORIGINAL.html`: original project markup retained as a factual-change reference, not loaded by the site.
+- `TEST_RESULTS.md`: browser validation results.
+- `tests/portfolio.cjs`: optional browser regression checks.
+- `docs/`: desktop/mobile previews and final browser report.
 
-**Technologies:** Python (Flask), MySQL, HTML, CSS, JavaScript
+## Verification
 
-* Personalized travel itinerary generation
-* Budget and preference-based recommendations
-* IT Service Ticket Module with CRUD operations
-* Data preprocessing and machine learning workflow support
+Test at 320, 375, 430, 768, 1024 and 1440 pixels. Check all category buttons, expand technical details, use mobile navigation and Escape, download the CV, open certificates, switch themes and reload, and emulate reduced motion. The gallery should have nine unique cards under All. Confirm images load and document width equals viewport width. Check browser DevTools for errors.
 
-### Vehicle Rental Mobile Application
+Optional automated regression check (Node.js and Microsoft Edge required):
 
-**Technologies:** Node.js, MongoDB, HTML, CSS
+```powershell
+npm install --no-save --prefix .qa playwright
+node tests/portfolio.cjs
+```
 
-* Vehicle booking and management
-* Customer management system
-* CRUD operations for vehicles and bookings
-* Responsive user interface
+Keep the local server running on port 8080. This tooling is for development only; no packages are shipped with the website.
 
-### Web-Based Laundry Management System
+## Deploy to Netlify
 
-**Technologies:** Java, React, SQL, Tomcat
+1. Push this repository directory to GitHub and import it in Netlify.
+2. Leave the build command empty and the base directory unset.
+3. Set the publish directory to `thiloka-portfolio`; the included `netlify.toml` supplies it automatically.
+4. Deploy and check navigation, local assets, CV download and external links on the HTTPS preview.
 
-* Customer, staff, and administrator management
-* User management with CRUD functionalities
-* Database integration
-* Scalable system architecture
+For manual deployment, drag the **contents of the `thiloka-portfolio` folder** to Netlify Drop. If importing the parent downloads folder instead, set the base directory to `Thiloka-portfolio-main`. No SPA redirects or environment variables are required. This update has not been deployed.
 
-### MOVIE-SENTIBOT
-
-**Technologies:** Python, Scikit-learn, Pandas
-
-* NLP-based sentiment analysis system
-* Movie review classification
-* Data preprocessing and model evaluation
-* Kaggle dataset implementation
-
-### Hotel Room Reservation System
-
-**Technologies:** Java, JSP, Servlets, Maven
-
-* User registration and authentication
-* Profile management
-* Password recovery functionality
-* Session management
-
-### IoT-Based Smart Greenhouse System
-
-**Technologies:** Arduino, DHT11, LDR, Soil Moisture Sensor
-
-* Environmental monitoring automation
-* Smart irrigation support
-* Sensor-based greenhouse management
-
----
-
-## 💻 Technical Skills
-
-### Programming Languages
-
-* Java
-* Python
-* C
-* JavaScript
-
-### Web Development
-
-* HTML5
-* CSS3
-* JavaScript
-* React
-* JSP
-* Servlets
-* Spring Boot
-
-### Databases
-
-* MySQL
-* MongoDB
-* SQL
-
-### Software Engineering
-
-* Object-Oriented Programming (OOP)
-* CRUD Operations
-* Data Structures & Algorithms
-
-### AI & Machine Learning
-
-* Data Preprocessing
-* NLP Fundamentals
-* Model Evaluation
-* Machine Learning Basics
-
----
-
-## 📜 Certifications
-
-* Cisco Networking Basics
-* AI/ML Engineer – Stage 1 (SLIIT)
-* Web Development 1 – University of Moratuwa
-* Web Development 2 – University of Moratuwa
-* Python for Beginners – University of Moratuwa
-
----
-
-## 📞 Contact
-
-📧 Email: [thilokajeewani888@gmail.com](mailto:thilokajeewani888@gmail.com)
-
-🔗 LinkedIn:
-https://linkedin.com/in/thiloka-kulathunga-b6662433b
-
-💻 GitHub:
-https://github.com/Thiloka-Jeewani
-
----
-
-### Thank you for visiting my portfolio!
-
-I am always eager to learn, collaborate, and contribute to innovative software solutions.
-
-
+Google Fonts is optional: system-font fallbacks keep the site usable if the font service is unavailable. The site makes no GitHub API requests at runtime.

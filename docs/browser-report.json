@@ -1,0 +1,55 @@
+{
+  "viewports": [
+    {
+      "width": 320,
+      "scroll": 320,
+      "projects": 9,
+      "brokenImages": [],
+      "overflow": []
+    },
+    {
+      "width": 375,
+      "scroll": 375,
+      "projects": 9,
+      "brokenImages": [],
+      "overflow": []
+    },
+    {
+      "width": 430,
+      "scroll": 430,
+      "projects": 9,
+      "brokenImages": [],
+      "overflow": []
+    },
+    {
+      "width": 768,
+      "scroll": 768,
+      "projects": 9,
+      "brokenImages": [],
+      "overflow": []
+    },
+    {
+      "width": 1024,
+      "scroll": 1024,
+      "projects": 9,
+      "brokenImages": [],
+      "overflow": []
+    },
+    {
+      "width": 1440,
+      "scroll": 1440,
+      "projects": 9,
+      "brokenImages": [],
+      "overflow": []
+    }
+  ],
+  "errors": [],
+  "checks": [
+    "all category filters",
+    "mobile menu and Escape",
+    "resume download",
+    "local image and anchor links",
+    "theme persistence",
+    "reduced motion"
+  ]
+}
